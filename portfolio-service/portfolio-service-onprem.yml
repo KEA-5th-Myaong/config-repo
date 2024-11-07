@@ -1,0 +1,37 @@
+server:
+  port: 9086
+
+spring:
+  application:
+    name: portfolio-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/prototype
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: prototype
+    password: prototype
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true # dev 환경에서는 이게 꼭 필요!
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka # eureka 서버에 등록
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+    enabled: true
+    path: /portfolios/v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
