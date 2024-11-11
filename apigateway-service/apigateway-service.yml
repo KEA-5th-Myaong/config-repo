@@ -101,3 +101,12 @@ springdoc:
     urls[8]:
       name: ps-service
       url: /ps/v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, beans
+
+  jwt:
+    secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog

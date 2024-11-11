@@ -78,3 +78,10 @@ springdoc:
     path: /members/v3/api-docs
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, beans
+
