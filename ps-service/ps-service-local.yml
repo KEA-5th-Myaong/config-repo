@@ -1,9 +1,9 @@
 server:
-  port: 9087
+  port: 9088
 
 spring:
   application:
-    name: prejobs-service
+    name: ps-service
 
   datasource:
     url: jdbc:h2:tcp://localhost/~/Documents/test
@@ -23,8 +23,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     register-with-eureka: true
     fetch-registry: true
@@ -35,7 +34,7 @@ springdoc:
   api-docs:
     version: openapi_3_1
     enabled: true
-    path: /pre-jobs/v3/api-docs
+    path: /ps/v3/api-docs
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
 
