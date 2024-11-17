@@ -1,0 +1,48 @@
+server:
+  port: 9081
+
+spring:
+  application:
+    name: inquiry-service
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka # eureka 서버에 등록
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+    enabled: true
+    path: /inquiry/v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, beans
+
+  jwt:
+    secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
