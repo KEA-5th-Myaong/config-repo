@@ -47,7 +47,7 @@ spring:
         - id: member-service
           uri: lb://MEMBER-SERVICE
           predicates:
-            - Path=/members/**
+            - Path=/members/me
             - Method=GET
           filters:
             - AuthorizationHeaderFilter
