@@ -38,7 +38,15 @@ spring:
         - id: member-service
           uri: lb://MEMBER-SERVICE
           predicates:
-            - Path=/members/**, /auth/**, /login/**, /oauth2/**
+            - Path=/auth/**, /login/**, /oauth2/**
+
+        - id: member-service
+          uri: lb://MEMBER-SERVICE
+          predicates:
+            - Path=/members/**
+            - Method=GET
+          filters:
+            - AuthorizationHeaderFilter
         # 공지사항 서비스
         - id: notice-service
           uri: lb://NOTICE-SERVICE
@@ -103,12 +111,11 @@ springdoc:
       name: ps-service
       url: /ps/v3/api-docs
 
-
 management:
   endpoints:
     web:
       exposure:
         include: refresh, health, info, beans
 
-  jwt:
-    secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+jwt:
+  secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
