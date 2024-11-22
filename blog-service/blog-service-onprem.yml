@@ -8,8 +8,8 @@ spring:
   datasource:
     url: jdbc:mysql://172.16.210.108:3306/prototype
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: prototype
-    password: prototype
+    username: minhyung
+    password: Myaong00!
   jpa:
     show-sql: true
     hibernate:
