@@ -33,10 +33,6 @@ spring:
       hibernate:
         format_sql: true
 
-  sql:
-    init:
-      mode: always
-
   security:
     oauth2:
       client:
