@@ -65,7 +65,7 @@ spring:
           uri: lb://MEMBER-SERVICE
           predicates:
             - Path=/members/**
-            - Method=GET
+            - Method=GET,POST
           filters:
             - AuthorizationHeaderFilter
             
