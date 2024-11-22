@@ -69,7 +69,7 @@ spring:
             user-name-attribute: id
 
 jwt:
-  secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+  secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
 
 springdoc:
   api-docs:
@@ -85,3 +85,7 @@ management:
       exposure:
         include: refresh, health, info, beans
 
+
+redirect-url:
+  main: http://localhost:3000/main
+  profile-form: http://localhost:3000/sign-up/detail
