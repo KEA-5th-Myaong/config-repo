@@ -151,4 +151,4 @@ management:
         include: refresh, health, info, beans
 
 jwt:
-  secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+  secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
