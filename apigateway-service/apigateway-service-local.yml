@@ -60,7 +60,23 @@ spring:
           uri: lb://MEMBER-SERVICE
           predicates:
             - Path=/auth/**, /login/**, /oauth2/**
-            
+
+        - id: check_password_route
+          uri: lb://MEMBER-SERVICE
+          predicates:
+            - Path=/auth/check-password
+            - Method=POST
+          filters:
+            - name: AuthorizationHeaderFilter
+
+        - id: update_password_route
+          uri: lb://MEMBER-SERVICE
+          predicates:
+            - Path=/auth/password
+            - Method=PUT
+          filters:
+            - name: AuthorizationHeaderFilter
+
         - id: member-service
           uri: lb://MEMBER-SERVICE
           predicates:

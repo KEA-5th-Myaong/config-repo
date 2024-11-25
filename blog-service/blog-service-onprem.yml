@@ -42,5 +42,5 @@ springdoc:
         exposure:
           include: refresh, health, info, beans
 
-    jwt:
-      secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+jwt:
+  secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
