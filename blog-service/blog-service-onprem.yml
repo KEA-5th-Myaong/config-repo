@@ -47,8 +47,8 @@ jwt:
 
 # Object Storage
 s3:
-  endpoint: "http://172.16.210.30:9000"
-  region: "region"
+  endpoint: http://172.16.210.30:9000
+  region: region
   credentials:
-    accessKey: "CKZnlthtmn4TePG5SLoi"
-    secretKey: "sHopxI50FGaQ9e7poAlmWFzuKBfEcwdxeQFf4SR3"
+    accessKey: CKZnlthtmn4TePG5SLoi
+    secretKey: sHopxI50FGaQ9e7poAlmWFzuKBfEcwdxeQFf4SR3
