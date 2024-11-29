@@ -152,3 +152,9 @@ management:
 
 jwt:
   secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+
+redirect-url:
+  login: http://localhost:3000/log-in
+  main: http://localhost:3000/main
+  profile-form: http://localhost:3000/sign-up/detail
+  reissue: http://localhost:8000/auth/reissue
