@@ -42,7 +42,7 @@ spring:
             client-id: 0ae8c24b64dc00267bd12055e15594e8 # js key
             client-secret: 0ebb5b3b4cd63a88e7a86d0b7bf19f06 # rest api key
             client-authentication-method: client_secret_post
-            redirect-uri: http://localhost:9083/login/oauth2/code/kakao # 카카오 인증 서버로부터 인가 코드가 전달되는 uri
+            redirect-uri: http://172.16.210.30:8000/login/oauth2/code/kakao # 카카오 인증 서버로부터 인가 코드가 전달되는 uri
             authorization-grant-type: authorization_code
             scope:
               - profile_nickname
@@ -52,7 +52,7 @@ spring:
             client-id: 395368250733-nrpfnq9o3vird9ligjj5lu1ccj6h75gk.apps.googleusercontent.com
             client-secret: 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
             client-authentication-method: client_secret_post
-            redirect-uri: http://localhost:9083/login/oauth2/code/google
+            redirect-uri: http://172.16.210.30:8000/login/oauth2/code/google
             authorization-grant-type: authorization_code
             scope:
               - email
