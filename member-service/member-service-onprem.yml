@@ -52,7 +52,7 @@ spring:
             client-id: 395368250733-nrpfnq9o3vird9ligjj5lu1ccj6h75gk.apps.googleusercontent.com
             client-secret: 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
             client-authentication-method: client_secret_post
-            redirect-uri: http://172.16.210.30:8000/login/oauth2/code/google
+            redirect-uri: http://localhost:9083/login/oauth2/code/google
             authorization-grant-type: authorization_code
             scope:
               - email
