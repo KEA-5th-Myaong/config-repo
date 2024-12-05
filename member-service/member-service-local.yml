@@ -20,22 +20,17 @@ spring:
       port: 6379 # redis
 
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test
-    driver-class-name: org.h2.Driver
-    username: sa
-
+    url: jdbc:mysql://172.16.210.108:3306/prototype
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: minhyung
+    password: Myaong00!
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-    defer-datasource-initialization: true
-
-  sql:
-    init:
-      mode: always
 
   security:
     oauth2:
