@@ -35,6 +35,13 @@ spring:
           filters:
             - AuthorizationHeaderFilter
             
+        - id: blog-service
+          uri: lb://BLOG-SERVICE
+          predicates:
+            - Path=/admin/contents/**
+          filters:
+            - AuthorizationHeaderFilter
+            
         # 문의 서비스
         - id: inquiry-service
           uri: lb://INQUIRY-SERVICE
@@ -49,11 +56,25 @@ spring:
           filters:
             - AuthorizationHeaderFilter
             
+        - id: inquiry-service
+          uri: lb://INQUIRY-SERVICE
+          predicates:
+            - Path=/admin/inquiries/**
+          filters:
+            - AuthorizationHeaderFilter
+            
         # 모의 면접 서비스
         - id: interview-service
           uri: lb://INTERVIEW-SERVICE
           predicates:
             - Path=/interviews/**
+          filters:
+            - AuthorizationHeaderFilter
+            
+        - id: interview-service
+          uri: lb://INTERVIEW-SERVICE
+          predicates:
+            - Path=/admin/companies/**
           filters:
             - AuthorizationHeaderFilter
             
@@ -70,11 +91,25 @@ spring:
           filters:
             - AuthorizationHeaderFilter
             
+        - id: member-service
+          uri: lb://MEMBER-SERVICE
+          predicates:
+            - Path=/admin/members/**, /admin/permission/**
+          filters:
+            - AuthorizationHeaderFilter
+            
         # 공지사항 서비스
         - id: notice-service
           uri: lb://NOTICE-SERVICE
           predicates:
             - Path=/notices/**
+            
+        - id: notice-service
+          uri: lb://NOTICE-SERVICE
+          predicates:
+            - Path=/admin/notices/**
+          filters:
+            - AuthorizationHeaderFilter
             
         # 알림 서비스
         - id: notification-service
@@ -97,6 +132,13 @@ spring:
           uri: lb://PREJOBS-SERVICE
           predicates:
             - Path=/pre-jobs/**
+          filters:
+            - AuthorizationHeaderFilter
+            
+        - id: prejobs-service
+          uri: lb://PREJOBS-SERVICE
+          predicates:
+            - Path=/admin/jobs/**
           filters:
             - AuthorizationHeaderFilter
             
