@@ -199,3 +199,6 @@ jwt:
 
 redirect-url:
   reissue: http://localhost:8000/auth/reissue
+  main: http://localhost:3000/main
+  login: http://localhost:3000/log-in
+  profile-form: http://localhost:3000/sign-up/detail
