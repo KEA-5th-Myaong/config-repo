@@ -17,7 +17,7 @@ spring:
 
   data:
     redis:
-      host: localhost
+      host: 172.16.210.30
       port: 6379 # redis
 
   datasource:
