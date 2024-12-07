@@ -2,25 +2,28 @@ server:
   port: 9083
 
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka # eureka 서버에 등록
+    register-with-eureka: false
+    fetch-registry: false
+    enabled: false
 
 spring:
   application:
-    name: member-service
+    name: popolog-member-service
 
   cloud:
+    config:
+      enabled: true
     kubernetes:
-      enabled: false
+      discovery:
+        enabled: true
+        all-namespaces: true
+      loadbalancer:
+        mode: service
 
   data:
     redis:
-      host: localhost
+      host: 10.0.10.93
       port: 6379 # redis
 
   datasource:
@@ -45,7 +48,8 @@ spring:
             client-id: 0ae8c24b64dc00267bd12055e15594e8 # js key
             client-secret: 0ebb5b3b4cd63a88e7a86d0b7bf19f06 # rest api key
             client-authentication-method: client_secret_post
-            redirect-uri: http://localhost:9083/login/oauth2/code/kakao # 카카오 인증 서버로부터 인가 코드가 전달되는 uri
+            # TODO: 로드밸런서 public ip로 설정
+            redirect-uri: http://172.16.210.30:8000/login/oauth2/code/kakao # 카카오 인증 서버로부터 인가 코드가 전달되는 uri
             authorization-grant-type: authorization_code
             scope:
               - profile_nickname
@@ -86,7 +90,8 @@ management:
 
 
 redirect-url:
-  reissue: http://localhost:8000/auth/reissue
+  # TODO: 로드밸런서 public ip로 설정
+  reissue: http://172.16.210.30:8000/auth/reissue
   main: http://localhost:3000/main
   login: http://localhost:3000/log-in
   profile-form: http://localhost:3000/sign-up/detail

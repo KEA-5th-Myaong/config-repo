@@ -3,12 +3,17 @@ server:
 
 spring:
   application:
-    name: apigateway-service
+    name: popolog-apigateway-service
 
   cloud:
+    config:
+      enabled: true
     kubernetes:
       discovery:
+        enabled: true
         all-namespaces: true
+      loadbalancer:
+        mode: service
 
     gateway:
       globalcors:

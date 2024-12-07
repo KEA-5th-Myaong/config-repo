@@ -15,6 +15,10 @@ spring:
   application:
     name: member-service
 
+  cloud:
+    kubernetes:
+      enabled: false
+
   data:
     redis:
       host: 172.16.210.30
@@ -83,7 +87,7 @@ management:
 
 
 redirect-url:
-  reissue: http://localhost:8000/auth/reissue
+  reissue: http://172.16.210.30:8000/auth/reissue
   main: http://localhost:3000/main
   login: http://localhost:3000/log-in
   profile-form: http://localhost:3000/sign-up/detail

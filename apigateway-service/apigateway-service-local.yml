@@ -6,6 +6,8 @@ spring:
     name: apigateway-service
 
   cloud:
+    kubernetes:
+      enabled: false
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials 
