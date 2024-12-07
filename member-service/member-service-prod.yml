@@ -9,7 +9,7 @@ eureka:
 
 spring:
   application:
-    name: popolog-member-service
+    name: member-service # config repo의 디렉토리, 파일 이름과 맞춰야함
 
   cloud:
     config:

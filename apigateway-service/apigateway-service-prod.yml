@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: popolog-apigateway-service
+    name: apigateway-service # config repo의 디렉토리, 파일 이름과 맞춰야함
 
   cloud:
     config:
