@@ -205,7 +205,7 @@ management:
         include: refresh, health, info, beans
 
 jwt:
-  secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+  secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
 
 redirect-url:
   reissue: ${BASE_URI:http://172.16.210.30:8000}/auth/reissue
