@@ -16,6 +16,8 @@ spring:
         mode: service
 
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
       globalcors:
         cors-configurations:
           '[/**]':
@@ -32,17 +34,59 @@ spring:
         - id: blog-service
           uri: lb://BLOG-SERVICE
           predicates:
+            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**
+            - Method=GET
+
+        - id: blog-service
+          uri: lb://BLOG-SERVICE
+          predicates:
             - Path=/blog/**
+          filters:
+            - AuthorizationHeaderFilter
+
+        - id: blog-service
+          uri: lb://BLOG-SERVICE
+          predicates:
+            - Path=/admin/contents/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 문의 서비스
         - id: inquiry-service
           uri: lb://INQUIRY-SERVICE
           predicates:
             - Path=/inquiries/**
+            - Method=GET
+
+        - id: inquiry-service
+          uri: lb://INQUIRY-SERVICE
+          predicates:
+            - Path=/inquiries/**
+          filters:
+            - AuthorizationHeaderFilter
+
+        - id: inquiry-service
+          uri: lb://INQUIRY-SERVICE
+          predicates:
+            - Path=/admin/inquiries/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 모의 면접 서비스
         - id: interview-service
           uri: lb://INTERVIEW-SERVICE
           predicates:
             - Path=/interviews/**
+          filters:
+            - AuthorizationHeaderFilter
+
+        - id: interview-service
+          uri: lb://INTERVIEW-SERVICE
+          predicates:
+            - Path=/admin/companies/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 회원 및 인증 서비스
         - id: member-service
           uri: lb://MEMBER-SERVICE
@@ -52,8 +96,14 @@ spring:
         - id: member-service
           uri: lb://MEMBER-SERVICE
           predicates:
-            - Path=/members/me
-            - Method=GET
+            - Path=/members/**
+          filters:
+            - AuthorizationHeaderFilter
+
+        - id: member-service
+          uri: lb://MEMBER-SERVICE
+          predicates:
+            - Path=/admin/members/**, /admin/permission/**
           filters:
             - AuthorizationHeaderFilter
 
@@ -62,26 +112,52 @@ spring:
           uri: lb://NOTICE-SERVICE
           predicates:
             - Path=/notices/**
+
+        - id: notice-service
+          uri: lb://NOTICE-SERVICE
+          predicates:
+            - Path=/admin/notices/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 알림 서비스
         - id: notification-service
           uri: lb://NOTIFICATION-SERVICE
           predicates:
             - Path=/notifications/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 포트폴리오 서비스
         - id: portfolio-service
           uri: lb://PORTFOLIO-SERVICE
           predicates:
             - Path=/portfolios/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 관심 직군 서비스
         - id: prejobs-service
           uri: lb://PREJOBS-SERVICE
           predicates:
             - Path=/pre-jobs/**
+          filters:
+            - AuthorizationHeaderFilter
+
+        - id: prejobs-service
+          uri: lb://PREJOBS-SERVICE
+          predicates:
+            - Path=/admin/jobs/**
+          filters:
+            - AuthorizationHeaderFilter
+
         # 자기소개서 서비스
         - id: ps-service
           uri: lb://PS-SERVICE
           predicates:
             - Path=/ps/**
+          filters:
+            - AuthorizationHeaderFilter
 
 eureka:
   client:
@@ -128,3 +204,9 @@ management:
 
 jwt:
   secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+
+redirect-url:
+  reissue: ${BASE_URI:http://172.16.210.30:8000}/auth/reissue
+  main: http://localhost:3000/main
+  login: http://localhost:3000/log-in
+  profile-form: http://localhost:3000/sign-up/detail
