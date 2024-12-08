@@ -50,7 +50,7 @@ spring:
             client-id: 0ae8c24b64dc00267bd12055e15594e8 # js key
             client-secret: 0ebb5b3b4cd63a88e7a86d0b7bf19f06 # rest api key
             client-authentication-method: client_secret_post
-            redirect-uri: ${BASE_URI:http://172.16.210.30:8000}/login/oauth2/code/kakao # 카카오 인증 서버로부터 인가 코드가 전달되는 uri
+            redirect-uri: ${BASE_URI:"http://172.16.210.30:8000"}/login/oauth2/code/kakao # 카카오 인증 서버로부터 인가 코드가 전달되는 uri
             authorization-grant-type: authorization_code
             scope:
               - profile_nickname
@@ -91,7 +91,7 @@ management:
 
 
 redirect-url:
-  reissue: ${BASE_URI:http://172.16.210.30:8000}/auth/reissue
+  reissue: ${BASE_URI:"http://172.16.210.30:8000"}/auth/reissue
   main: http://localhost:3000/main
   login: http://localhost:3000/log-in
   profile-form: http://localhost:3000/sign-up/detail

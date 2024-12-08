@@ -208,7 +208,7 @@ jwt:
   secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
 
 redirect-url:
-  reissue: ${BASE_URI}
+  reissue: ${BASE_URI:"http://172.16.210.30:8000"}/auth/reissue
   main: http://localhost:3000/main
   login: http://localhost:3000/log-in
   profile-form: http://localhost:3000/sign-up/detail
