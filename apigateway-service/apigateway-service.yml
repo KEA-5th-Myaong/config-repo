@@ -9,8 +9,8 @@ spring:
     config:
       enabled: true
     kubernetes:
-      config:
-        enabled: false
+      #      config:
+      #        enabled: false
       discovery:
         enabled: true
         all-namespaces: true
@@ -205,10 +205,10 @@ management:
         include: refresh, health, info, beans
 
 jwt:
-  secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
+  secret-key: ${JWT_SECRET_KEY}
 
 redirect-url:
-  reissue: ${BASE_URI:"http://172.16.210.30:8000"}/auth/reissue
-  main: http://localhost:3000/main
-  login: http://localhost:3000/log-in
-  profile-form: http://localhost:3000/sign-up/detail
+  reissue: ${REISSUE_URI}
+  main: ${MAIN_PAGE_URI}
+  login: ${LOGIN_PAGE_URI}
+  profile-form: ${PROFILE_FORM_URI}
