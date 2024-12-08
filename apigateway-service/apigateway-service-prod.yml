@@ -208,7 +208,7 @@ jwt:
   secret-key: ${JWT_SECRET_KEY:myaongpplogmyaongpplogmyaongpplogmyaongpplog}
 
 redirect-url:
-  reissue: ${REISSUE_URI:http://localhost:8000/auth/reissue}
+  reissue: ${REISSUE_URI:http://172.16.210.30:8000/auth/reissue}
   main: ${MAIN_PAGE_URI:http://localhost:3000/main}
   login: ${LOGIN_PAGE_URI:http://localhost:3000/log-in}
   profile-form: ${PROFILE_FORM_URI:http://localhost:3000/sign-up/detail}

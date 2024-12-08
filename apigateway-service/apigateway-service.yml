@@ -205,10 +205,10 @@ management:
         include: refresh, health, info, beans
 
 jwt:
-  secret-key: ${JWT_SECRET_KEY}
+  secret-key: ${JWT_SECRET_KEY:myaongpplogmyaongpplogmyaongpplogmyaongpplog}
 
 redirect-url:
-  reissue: ${REISSUE_URI}
-  main: ${MAIN_PAGE_URI}
-  login: ${LOGIN_PAGE_URI}
-  profile-form: ${PROFILE_FORM_URI}
+  reissue: ${REISSUE_URI:http://158.179.172.38:80/auth/reissue}
+  main: ${MAIN_PAGE_URI:http://localhost:3000/main}
+  login: ${LOGIN_PAGE_URI:http://localhost:3000/log-in}
+  profile-form: ${PROFILE_FORM_URI:http://localhost:3000/sign-up/detail}
