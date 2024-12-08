@@ -11,6 +11,8 @@ spring:
     kubernetes:
       config:
         enabled: true
+        namespace: popolog
+        name: apigw-config
       discovery:
         enabled: true
         all-namespaces: true
