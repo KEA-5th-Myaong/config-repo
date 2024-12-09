@@ -164,31 +164,31 @@ springdoc:
     use-root-path: true
     urls[0]:
       name: blog-service
-      url: /blog/v3/api-docs
+      url: /api-docs/v3/blog
     urls[1]:
       name: inquiry-service
-      url: /inquiries/v3/api-docs
+      url: /api-docs/v3/inquiries
     urls[2]:
       name: interview-service
-      url: /interviews/v3/api-docs
+      url: /api-docs/v3/interviews
     urls[3]:
       name: member-service
-      url: /members/v3/api-docs
+      url: /api-docs/v3/members
     urls[4]:
       name: notice-service
-      url: /notices/v3/api-docs
+      url: /api-docs/v3/notices
     urls[5]:
       name: notification-service
-      url: /notifications/v3/api-docs
+      url: /api-docs/v3/notifications
     urls[6]:
       name: portfolio-service
-      url: /portfolios/v3/api-docs
+      url: /api-docs/v3/portfolios
     urls[7]:
       name: prejobs-service
-      url: /pre-jobs/v3/api-docs
+      url: /api-docs/v3/pre-jobs
     urls[8]:
       name: ps-service
-      url: /ps/v3/api-docs
+      url: /api-docs/v3/ps
 
 management:
   endpoints:
