@@ -210,7 +210,7 @@ jwt:
   secret-key: ${JWT_SECRET_KEY}
 
 redirect-url:
-  reissue: ${REISSUE_URI}
-  main: ${MAIN_PAGE_URI}
-  login: ${LOGIN_PAGE_URI}
-  profile-form: ${PROFILE_FORM_URI}
+  reissue: ${redirect-url.reissue}
+  main: ${redirect-url.main}
+  login: ${redirect-url.login}
+  profile-form: ${redirect-url.profile-form}
