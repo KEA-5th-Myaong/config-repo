@@ -19,7 +19,7 @@ spring:
         enabled: true
         namespace: popolog
       discovery:
-        enabled: false
+        enabled: true
         all-namespaces: true
       loadbalancer:
         mode: service
@@ -58,10 +58,10 @@ spring:
               - account_email
           google:
             client-name: google
-            client-id: 395368250733-nrpfnq9o3vird9ligjj5lu1ccj6h75gk.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             client-authentication-method: client_secret_post
-            redirect-uri: http://localhost:9083/login/oauth2/code/google # 도메인 등록 후 사용 가능
+            redirect-uri:  ${GOOGLE_REDIRECT_URI}
             authorization-grant-type: authorization_code
             scope:
               - email
@@ -92,7 +92,7 @@ management:
 
 
 redirect-url:
-  reissue: ${REISSUE_URL}
-  main: ${MAIN_URL}
-  login: ${LOGIN_URL}
-  profile-form: ${PROFILE_FORM_URL}
+  reissue: ${BACK_URL}/auth/reissue
+  main: ${FRONT_URL}/main
+  login: ${FRONT_URL}/log-in
+  profile-form: ${FRONT_URL}/sign-up/detail

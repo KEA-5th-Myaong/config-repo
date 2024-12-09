@@ -1,5 +1,5 @@
 server:
-  port: 8000
+port: 8000
 
 spring:
   application:
@@ -12,7 +12,6 @@ spring:
       config:
         enabled: true
         namespace: popolog
-        name: apigw-config # ConfigMap 이름 지정
       discovery:
         enabled: true
         all-namespaces: true
@@ -210,7 +209,7 @@ jwt:
   secret-key: ${JWT_SECRET_KEY}
 
 redirect-url:
-  reissue: ${REISSUE_URI}
-  main: ${MAIN_PAGE_URI}
-  login: ${LOGIN_PAGE_URI}
-  profile-form: ${PROFILE_FORM_URI}
+  reissue: ${BACK_URL}/auth/reissue
+  main: ${FRONT_URL}/main
+  login: ${FRONT_URL}/log-in
+  profile-form: ${FRONT_URL}/sign-up/detail

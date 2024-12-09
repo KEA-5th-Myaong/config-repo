@@ -13,7 +13,7 @@ spring:
         enabled: true
         namespace: popolog
       discovery:
-        enabled: false
+        enabled: true
         all-namespaces: true
       loadbalancer:
         mode: service
@@ -209,7 +209,7 @@ jwt:
   secret-key: ${JWT_SECRET_KEY}
 
 redirect-url:
-  reissue: ${REISSUE_URL}
-  main: ${MAIN_URL}
-  login: ${LOGIN_URL}
-  profile-form: ${PROFILE_FORM_URL}
+  reissue: ${BACK_URL}/auth/reissue
+  main: ${FRONT_URL}/main
+  login: ${FRONT_URL}/log-in
+  profile-form: ${FRONT_URL}/sign-up/detail
