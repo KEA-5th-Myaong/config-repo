@@ -51,7 +51,7 @@ jwt:
 
 # Object Storage
 s3:
-  endpoint: http://localhost:9000
+  endpoint: http://172.16.210.30:9000
   region: region
   credentials:
     accessKey: CKZnlthtmn4TePG5SLoi
