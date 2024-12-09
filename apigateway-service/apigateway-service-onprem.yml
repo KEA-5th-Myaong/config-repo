@@ -27,7 +27,7 @@ spring:
         - id: blog-service
           uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**
+            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**, /api-docs/v3/blog
             - Method=GET
 
         - id: blog-service
@@ -48,7 +48,7 @@ spring:
         - id: inquiry-service
           uri: lb://INQUIRY-SERVICE
           predicates:
-            - Path=/inquiries/**
+            - Path=/inquiries/**, /api-docs/v3/inquiries
             - Method=GET
 
         - id: inquiry-service
@@ -80,11 +80,16 @@ spring:
           filters:
             - AuthorizationHeaderFilter
 
+        - id: interview-service
+          uri: lb://INTERVIEW-SERVICE
+          predicates:
+            - Path=/api-docs/v3/interviews
+
         # 회원 및 인증 서비스
         - id: member-service
           uri: lb://MEMBER-SERVICE
           predicates:
-            - Path=/auth/**, /login/**, /oauth2/**
+            - Path=/auth/**, /login/**, /oauth2/**, /api-docs/v3/members
 
         - id: member-service
           uri: lb://MEMBER-SERVICE
@@ -104,7 +109,7 @@ spring:
         - id: notice-service
           uri: lb://NOTICE-SERVICE
           predicates:
-            - Path=/notices/**
+            - Path=/notices/**, /api-docs/v3/notices
 
         - id: notice-service
           uri: lb://NOTICE-SERVICE
@@ -121,6 +126,11 @@ spring:
           filters:
             - AuthorizationHeaderFilter
 
+        - id: notification-service
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/api-docs/v3/notifications
+
         # 포트폴리오 서비스
         - id: portfolio-service
           uri: lb://PORTFOLIO-SERVICE
@@ -128,6 +138,11 @@ spring:
             - Path=/portfolios/**
           filters:
             - AuthorizationHeaderFilter
+
+        - id: portfolio-service
+          uri: lb://PORTFOLIO-SERVICE
+          predicates:
+            - Path=/api-docs/v3/portfolios
 
         # 관심 직군 서비스
         - id: prejobs-service
@@ -144,6 +159,11 @@ spring:
           filters:
             - AuthorizationHeaderFilter
 
+        - id: prejobs-service
+          uri: lb://PREJOBS-SERVICE
+          predicates:
+            - Path=/api-docs/v3/pre-jobs
+
         # 자기소개서 서비스
         - id: ps-service
           uri: lb://PS-SERVICE
@@ -151,6 +171,11 @@ spring:
             - Path=/ps/**
           filters:
             - AuthorizationHeaderFilter
+        
+        - id: ps-service
+          uri: lb://PS-SERVICE
+          predicates:
+            - Path=/api-docs/v3/ps
 
 eureka:
   client:

@@ -1,9 +1,9 @@
 server:
-port: 8000
+  port: 8000
 
 spring:
   application:
-    name: apigateway-service # config repo의 디렉토리, 파일 이름과 맞춰야함
+    name: apigateway-service # config repo의 디렉토리, 파일 이름과 맞춰야 함
 
   cloud:
     config:
@@ -20,7 +20,7 @@ spring:
 
     gateway:
       default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+        - DedupeResponseHeader=Access-Control-Allow-Origin, Access-Control-Allow-Credentials
       globalcors:
         cors-configurations:
           '[/**]':
@@ -32,12 +32,13 @@ spring:
               - PUT
               - DELETE
             allowCredentials: true
+
       routes:
         # 블로그 서비스
         - id: blog-service
-          uri: lb://blog-service # 쿠버네티스의 Service 매니페스트 이름으로 적어야 함
+          uri: lb://blog-service
           predicates:
-            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**
+            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**, /api-docs/v3/blog
             - Method=GET
 
         - id: blog-service
@@ -58,7 +59,7 @@ spring:
         - id: inquiry-service
           uri: lb://inquiry-service
           predicates:
-            - Path=/inquiries/**
+            - Path=/inquiries/**, /api-docs/v3/inquiries
             - Method=GET
 
         - id: inquiry-service
@@ -90,11 +91,16 @@ spring:
           filters:
             - AuthorizationHeaderFilter
 
+        - id: interview-service
+          uri: lb://interview-service
+          predicates:
+            - Path=/api-docs/v3/interviews
+
         # 회원 및 인증 서비스
         - id: member-service
           uri: lb://member-service
           predicates:
-            - Path=/auth/**, /login/**, /oauth2/**
+            - Path=/auth/**, /login/**, /oauth2/**, /api-docs/v3/members
 
         - id: member-service
           uri: lb://member-service
@@ -114,7 +120,7 @@ spring:
         - id: notice-service
           uri: lb://notice-service
           predicates:
-            - Path=/notices/**
+            - Path=/notices/**, /api-docs/v3/notices
 
         - id: notice-service
           uri: lb://notice-service
@@ -131,6 +137,11 @@ spring:
           filters:
             - AuthorizationHeaderFilter
 
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api-docs/v3/notifications
+
         # 포트폴리오 서비스
         - id: portfolio-service
           uri: lb://portfolio-service
@@ -138,6 +149,11 @@ spring:
             - Path=/portfolios/**
           filters:
             - AuthorizationHeaderFilter
+
+        - id: portfolio-service
+          uri: lb://portfolio-service
+          predicates:
+            - Path=/api-docs/v3/portfolios
 
         # 관심 직군 서비스
         - id: prejobs-service
@@ -154,6 +170,11 @@ spring:
           filters:
             - AuthorizationHeaderFilter
 
+        - id: prejobs-service
+          uri: lb://prejobs-service
+          predicates:
+            - Path=/api-docs/v3/pre-jobs
+
         # 자기소개서 서비스
         - id: ps-service
           uri: lb://ps-service
@@ -161,6 +182,12 @@ spring:
             - Path=/ps/**
           filters:
             - AuthorizationHeaderFilter
+
+        # 자기소개서 서비스
+        - id: ps-service
+          uri: lb://ps-service
+          predicates:
+            - Path=/api-docs/v3/ps
 
 eureka:
   client:
