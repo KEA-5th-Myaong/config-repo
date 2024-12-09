@@ -35,20 +35,20 @@ spring:
       routes:
         # 블로그 서비스
         - id: blog-service
-          uri: lb://BLOG-SERVICE
+          uri: lb://blog-service # 쿠버네티스의 Service 매니페스트 이름으로 적어야 함
           predicates:
             - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**
             - Method=GET
 
         - id: blog-service
-          uri: lb://BLOG-SERVICE
+          uri: lb://blog-service
           predicates:
             - Path=/blog/**
           filters:
             - AuthorizationHeaderFilter
 
         - id: blog-service
-          uri: lb://BLOG-SERVICE
+          uri: lb://blog-service
           predicates:
             - Path=/admin/contents/**
           filters:
@@ -56,20 +56,20 @@ spring:
 
         # 문의 서비스
         - id: inquiry-service
-          uri: lb://INQUIRY-SERVICE
+          uri: lb://inquiry-service
           predicates:
             - Path=/inquiries/**
             - Method=GET
 
         - id: inquiry-service
-          uri: lb://INQUIRY-SERVICE
+          uri: lb://inquiry-service
           predicates:
             - Path=/inquiries/**
           filters:
             - AuthorizationHeaderFilter
 
         - id: inquiry-service
-          uri: lb://INQUIRY-SERVICE
+          uri: lb://inquiry-service
           predicates:
             - Path=/admin/inquiries/**
           filters:
@@ -77,14 +77,14 @@ spring:
 
         # 모의 면접 서비스
         - id: interview-service
-          uri: lb://INTERVIEW-SERVICE
+          uri: lb://interview-service
           predicates:
             - Path=/interviews/**
           filters:
             - AuthorizationHeaderFilter
 
         - id: interview-service
-          uri: lb://INTERVIEW-SERVICE
+          uri: lb://interview-service
           predicates:
             - Path=/admin/companies/**
           filters:
@@ -92,19 +92,19 @@ spring:
 
         # 회원 및 인증 서비스
         - id: member-service
-          uri: lb://MEMBER-SERVICE
+          uri: lb://member-service
           predicates:
             - Path=/auth/**, /login/**, /oauth2/**
 
         - id: member-service
-          uri: lb://MEMBER-SERVICE
+          uri: lb://member-service
           predicates:
             - Path=/members/**
           filters:
             - AuthorizationHeaderFilter
 
         - id: member-service
-          uri: lb://MEMBER-SERVICE
+          uri: lb://member-service
           predicates:
             - Path=/admin/members/**, /admin/permission/**
           filters:
@@ -112,12 +112,12 @@ spring:
 
         # 공지사항 서비스
         - id: notice-service
-          uri: lb://NOTICE-SERVICE
+          uri: lb://notice-service
           predicates:
             - Path=/notices/**
 
         - id: notice-service
-          uri: lb://NOTICE-SERVICE
+          uri: lb://notice-service
           predicates:
             - Path=/admin/notices/**
           filters:
@@ -125,7 +125,7 @@ spring:
 
         # 알림 서비스
         - id: notification-service
-          uri: lb://NOTIFICATION-SERVICE
+          uri: lb://notification-service
           predicates:
             - Path=/notifications/**
           filters:
@@ -133,7 +133,7 @@ spring:
 
         # 포트폴리오 서비스
         - id: portfolio-service
-          uri: lb://PORTFOLIO-SERVICE
+          uri: lb://portfolio-service
           predicates:
             - Path=/portfolios/**
           filters:
@@ -141,14 +141,14 @@ spring:
 
         # 관심 직군 서비스
         - id: prejobs-service
-          uri: lb://PREJOBS-SERVICE
+          uri: lb://prejobs-service
           predicates:
             - Path=/pre-jobs/**
           filters:
             - AuthorizationHeaderFilter
 
         - id: prejobs-service
-          uri: lb://PREJOBS-SERVICE
+          uri: lb://prejobs-service
           predicates:
             - Path=/admin/jobs/**
           filters:
@@ -156,7 +156,7 @@ spring:
 
         # 자기소개서 서비스
         - id: ps-service
-          uri: lb://PS-SERVICE
+          uri: lb://ps-service
           predicates:
             - Path=/ps/**
           filters:
