@@ -32,7 +32,7 @@ springdoc:
   api-docs:
     version: openapi_3_1
     enabled: true
-    path: /pre-jobs/v3/api-docs
+    path: /api-docs/v3/pre-jobs
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
 
