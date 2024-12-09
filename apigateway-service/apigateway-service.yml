@@ -12,9 +12,7 @@ spring:
       config:
         enabled: true
         namespace: popolog
-#        name: apigw-config
       discovery:
-#        enabled: true
         all-namespaces: true
       loadbalancer:
         mode: service
@@ -207,10 +205,10 @@ management:
         include: refresh, health, info, beans
 
 jwt:
-  secret-key: ${jwt.secret-key}
+  secret-key: ${JWT_SECRET_KEY}
 
 redirect-url:
-  reissue: ${redirect-url.reissue}
-  main: ${redirect-url.main}
-  login: ${redirect-url.login}
-  profile-form: ${redirect-url.profile-form}
+  reissue: ${REISSUE_URL}
+  main: ${MAIN_URL}
+  login: ${LOGIN_URL}
+  profile-form: ${PROFILE_FORM_URL}
