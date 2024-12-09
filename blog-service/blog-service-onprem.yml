@@ -18,6 +18,10 @@ spring:
       hibernate:
         format_sql: true
 
+  servlet:
+    multipart:
+      enabled: true
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
@@ -36,11 +40,11 @@ springdoc:
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
 
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: refresh, health, info, beans
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, beans
 
 jwt:
   secret-key: myaongpplogmyaongpplogmyaongpplogmyaongpplog
