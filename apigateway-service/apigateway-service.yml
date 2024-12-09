@@ -207,7 +207,7 @@ management:
         include: refresh, health, info, beans
 
 jwt:
-  secret-key: ${JWT_SECRET_KEY}
+  secret-key: ${jwt.secret-key}
 
 redirect-url:
   reissue: ${redirect-url.reissue}
