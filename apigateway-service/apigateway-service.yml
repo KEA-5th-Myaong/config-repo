@@ -13,6 +13,7 @@ spring:
         enabled: true
         namespace: popolog
       discovery:
+        enabled: false
         all-namespaces: true
       loadbalancer:
         mode: service
