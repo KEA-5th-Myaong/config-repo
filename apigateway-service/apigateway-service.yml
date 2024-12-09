@@ -12,9 +12,9 @@ spring:
       config:
         enabled: true
         namespace: popolog
-        name: apigw-config
+#        name: apigw-config
       discovery:
-        enabled: true
+#        enabled: true
         all-namespaces: true
       loadbalancer:
         mode: service
