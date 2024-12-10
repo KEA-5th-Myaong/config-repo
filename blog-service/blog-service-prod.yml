@@ -1,0 +1,64 @@
+server:
+  port: 9080
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    enabled: false
+
+spring:
+  application:
+    name: blog-service
+
+  cloud:
+    config:
+      enabled: true
+    kubernetes:
+      config:
+        enabled: true
+        namespace: popolog
+      discovery:
+        enabled: true
+        all-namespaces: true
+      loadbalancer:
+        mode: service
+
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  servlet:
+    multipart:
+      enabled: true
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+    enabled: true
+    path: /api-docs/v3/blog
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, beans
+
+# Object Storage TODO: OCI 스토리지로 추후 변경
+s3:
+  endpoint: http://172.16.210.30:9000
+  region: region
+  credentials:
+    accessKey: CKZnlthtmn4TePG5SLoi
+    secretKey: sHopxI50FGaQ9e7poAlmWFzuKBfEcwdxeQFf4SR3

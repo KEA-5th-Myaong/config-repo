@@ -44,6 +44,3 @@ management:
     web:
       exposure:
         include: refresh, health, info, beans
-
-  jwt:
-    secret_key: myaongpplogmyaongpplogmyaongpplogmyaongpplog

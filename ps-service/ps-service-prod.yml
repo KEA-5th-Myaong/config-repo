@@ -1,15 +1,34 @@
 server:
   port: 9088
 
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    enabled: false
+
 spring:
   application:
     name: ps-service
 
+  cloud:
+    config:
+      enabled: true
+    kubernetes:
+      config:
+        enabled: true
+        namespace: popolog
+      discovery:
+        enabled: true
+        all-namespaces: true
+      loadbalancer:
+        mode: service
+
   datasource:
-    url: jdbc:mysql://172.16.210.108:3306/prototype
+    url: ${DB_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: minhyung
-    password: Myaong00!
+    username: ${DB_USERNAME}}
+    password: ${DB_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
@@ -17,16 +36,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-    prefer-ip-address: true # dev 환경에서는 이게 꼭 필요!
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka # eureka 서버에 등록
 
 springdoc:
   api-docs:
