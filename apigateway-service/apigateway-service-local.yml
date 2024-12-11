@@ -27,13 +27,13 @@ spring:
         - id: blog-service
           uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**, /api-docs/v3/blog
+            - Path=/blog/recent/**, /api-docs/v3/blog
             - Method=GET
 
         - id: blog-service
           uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blog/profile/**, /blog/posts/**
+            - Path=/blog/profiles/**, /blog/posts/**, /blog/search/**
             - Method=GET
           filters:
             - OptionalAuthorizationFilter
