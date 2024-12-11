@@ -36,7 +36,7 @@ spring:
             - Path=/blog/profile/**, /blog/posts/**
             - Method=GET
           filters:
-            - AuthorizationHeaderFilter
+            - OptionalAuthorizationFilter
 
         - id: blog-service
           uri: lb://BLOG-SERVICE
@@ -104,7 +104,7 @@ spring:
           predicates:
             - Path=/members/**
           filters:
-            - OptionalAuthorizationFilter
+            - AuthorizationHeaderFilter
 
         - id: member-service
           uri: lb://MEMBER-SERVICE
