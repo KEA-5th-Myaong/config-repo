@@ -6,21 +6,18 @@ spring:
     name: blog-service
 
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test;MODE=MySQL;DATABASE_TO_UPPER=FALSE
-    driver-class-name: org.h2.Driver
-    username: sa
+    url: jdbc:mysql://172.16.210.108:3306/prototype
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: minhyung
+    password: Myaong00!
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-    defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always
-
+        
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
