@@ -36,17 +36,18 @@ spring:
       routes:
         # 블로그 서비스
         - id: blog-service
-          uri: lb://blog-service
+          uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blog/recent/**, /blog/search/**, /blog/profile/**, /blog/posts/**, /api-docs/v3/blog
+            - Path=/blog/recent/**, /api-docs/v3/blog
             - Method=GET
 
         - id: blog-service
-          uri: lb://blog-service
+          uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blog/**
+            - Path=/blog/profiles/**, /blog/posts/**, /blog/search/**
+            - Method=GET
           filters:
-            - AuthorizationHeaderFilter
+            - OptionalAuthorizationFilter
 
         - id: blog-service
           uri: lb://blog-service
