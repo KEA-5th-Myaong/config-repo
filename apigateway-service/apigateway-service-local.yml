@@ -36,7 +36,7 @@ spring:
             - Path=/blog/profile/**, /blog/posts/**
             - Method=GET
           filters:
-            - OptionalAuthorizationFilter
+            - AuthorizationHeaderFilter
 
         - id: blog-service
           uri: lb://BLOG-SERVICE
