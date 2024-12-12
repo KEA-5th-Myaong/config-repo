@@ -14,7 +14,9 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOrigins:
+              - "http://localhost:3000"
+              - "http://172.16.210.30:3000"  # 추가된 출처
             allowedHeaders: "*" # GET 이외의 요청에 필요
             allowedMethods:
               - GET
@@ -234,6 +236,6 @@ jwt:
 
 redirect-url:
   reissue: http://172.16.210.30:8000/auth/reissue
-  main: http://localhost:3000/main
-  login: http://localhost:3000/log-in
-  profile-form: http://localhost:3000/sign-up/detail
+  main: http://172.16.210.30:3000/main
+  login: http://172.16.210.30:3000/log-in
+  profile-form: http://172.16.210.30:3000/sign-up/detail
