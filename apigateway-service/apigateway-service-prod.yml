@@ -24,7 +24,9 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOrigins:
+              - "http://localhost:3000"
+              - "http://172.16.210.30:3000"  # 추가된 출처
             allowedHeaders: "*" # GET 이외의 요청에 필요
             allowedMethods:
               - GET
@@ -231,7 +233,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, info, beans
+        include: refresh, health, info, beans, prometheus
 
 jwt:
   secret-key: ${JWT_SECRET_KEY}
