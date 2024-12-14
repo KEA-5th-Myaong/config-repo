@@ -89,9 +89,6 @@ management:
     web:
       exposure:
         include: refresh, health, info, beans, prometheus
-  endpoint:
-    prometheus:
-      path: /actuator/prometheus/members
 
 
 redirect-url:

@@ -49,7 +49,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, info, beans
+        include: refresh, health, info, beans, prometheus
 
 # Object Storage TODO: OCI 스토리지로 변경
 s3:
