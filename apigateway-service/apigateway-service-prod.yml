@@ -38,13 +38,13 @@ spring:
       routes:
         # 블로그 서비스
         - id: blog-service
-          uri: lb://BLOG-SERVICE
+          uri: lb://blog-service
           predicates:
             - Path=/blog/recent/**, /api-docs/v3/blog, /actuator-blog/prometheus
             - Method=GET
 
         - id: blog-service
-          uri: lb://BLOG-SERVICE
+          uri: lb://blog-service
           predicates:
             - Path=/blog/profiles/**, /blog/posts/**, /blog/search/**
             - Method=GET
