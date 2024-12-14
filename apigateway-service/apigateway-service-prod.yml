@@ -25,13 +25,18 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - "*"
+              - "http://localhost:3000"
+              - "${FRONT_URL:http://172.16.210.30:3000}"
+              - "${WORKER1_URL}"
+              - "${WORKER2_URL}"
+              # 모든 도메인 허용하려면 allowedOrigin이 아닌 allowedOriginPatterns 사용
             allowedHeaders: "*" # GET 이외의 요청에 필요
             allowedMethods:
               - GET
               - POST
               - PUT
               - DELETE
+              - OPTIONS # 배포 환경에서 CORS 에러 해결을 위해 적용
             allowCredentials: true
 
       routes:
