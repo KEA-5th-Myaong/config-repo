@@ -50,6 +50,7 @@ management:
     web:
       exposure:
         include: refresh, health, info, beans, prometheus
+      base-path: /actuator-portfolio
   metrics:
     tags:
       application: ${spring.application.name}
