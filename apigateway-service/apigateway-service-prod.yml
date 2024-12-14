@@ -29,6 +29,7 @@ spring:
               - "${FRONT_URL:http://172.16.210.30:3000}"
               - "${WORKER1_URL}"
               - "${WORKER2_URL}"
+              - "${PROMETHEUS_URL}"
               # 모든 도메인 허용하려면 allowedOrigin이 아닌 allowedOriginPatterns 사용
             allowedHeaders: "*" # GET 이외의 요청에 필요
             allowedMethods:
