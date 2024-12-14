@@ -234,6 +234,9 @@ management:
     web:
       exposure:
         include: refresh, health, info, beans, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 jwt:
   secret-key: ${JWT_SECRET_KEY}

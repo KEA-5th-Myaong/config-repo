@@ -50,3 +50,6 @@ management:
     web:
       exposure:
         include: refresh, health, info, beans, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
