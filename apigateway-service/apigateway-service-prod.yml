@@ -40,7 +40,7 @@ spring:
         - id: blog-service
           uri: lb://BLOG-SERVICE
           predicates:
-            - Path=/blog/recent/**, /api-docs/v3/blog
+            - Path=/blog/recent/**, /api-docs/v3/blog, /actuator-blog/prometheus
             - Method=GET
 
         - id: blog-service
@@ -62,7 +62,7 @@ spring:
         - id: inquiry-service
           uri: lb://inquiry-service
           predicates:
-            - Path=/inquiries/**, /api-docs/v3/inquiries
+            - Path=/inquiries/**, /api-docs/v3/inquiries, /actuator-inquiry/prometheus
             - Method=GET
 
         - id: inquiry-service
@@ -97,13 +97,14 @@ spring:
         - id: interview-service
           uri: lb://interview-service
           predicates:
-            - Path=/api-docs/v3/interviews
+            - Path=/api-docs/v3/interviews, /actuator-interview/prometheus
+            - Method=GET
 
         # 회원 및 인증 서비스
         - id: member-service
           uri: lb://member-service
           predicates:
-            - Path=/auth/**, /login/**, /oauth2/**, /api-docs/v3/members, /tests/members/**
+            - Path=/auth/**, /login/**, /oauth2/**, /api-docs/v3/members, /actuator-member/prometheus, /tests/members/**
 
         - id: member-service
           uri: lb://member-service
@@ -123,7 +124,7 @@ spring:
         - id: notice-service
           uri: lb://notice-service
           predicates:
-            - Path=/notices/**, /api-docs/v3/notices
+            - Path=/notices/**, /api-docs/v3/notices, /actuator-notice/prometheus
 
         - id: notice-service
           uri: lb://notice-service
@@ -143,7 +144,8 @@ spring:
         - id: notification-service
           uri: lb://notification-service
           predicates:
-            - Path=/api-docs/v3/notifications
+            - Path=/api-docs/v3/notifications, /actuator-notification/prometheus
+            - Method=GET
 
         # 포트폴리오 서비스
         - id: portfolio-service
@@ -156,7 +158,8 @@ spring:
         - id: portfolio-service
           uri: lb://portfolio-service
           predicates:
-            - Path=/api-docs/v3/portfolios
+            - Path=/api-docs/v3/portfolios, /actuator-portfolio/prometheus
+            - Method=GET
 
         # 관심 직군 서비스
         - id: prejobs-service
@@ -176,7 +179,8 @@ spring:
         - id: prejobs-service
           uri: lb://prejobs-service
           predicates:
-            - Path=/api-docs/v3/pre-jobs
+            - Path=/api-docs/v3/pre-jobs, /actuator-prejobs/prometheus
+            - Method=GET
 
         # 자기소개서 서비스
         - id: ps-service
@@ -190,7 +194,8 @@ spring:
         - id: ps-service
           uri: lb://ps-service
           predicates:
-            - Path=/api-docs/v3/ps
+            - Path=/api-docs/v3/ps, /actuator-ps/prometheus
+            - Method=GET
 
 eureka:
   client:
