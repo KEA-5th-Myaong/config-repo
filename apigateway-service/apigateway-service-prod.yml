@@ -37,7 +37,7 @@ spring:
               - POST
               - PUT
               - DELETE
-              - OPTIONS # 배포 환경에서 CORS 에러 해결을 위해 적용
+              - OPTIONS # Preflight 요청에 대한 CORS 에러 해결을 위해 적용
             allowCredentials: true
 
       routes:
@@ -257,3 +257,9 @@ redirect-url:
   main: ${FRONT_URL}/main
   login: ${FRONT_URL}/log-in
   profile-form: ${FRONT_URL}/sign-up/detail
+
+logging:
+  pattern:
+    console: %d{yyyy-MM-dd HH:mm:ss} - [%thread] - %logger{36} - %msg%n
+  level:
+    root: INFO

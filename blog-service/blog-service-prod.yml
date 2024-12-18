@@ -59,7 +59,6 @@ management:
     tags:
       application: ${spring.application.name}
 
-
 # Object Storage TODO: OCI 스토리지로 추후 변경
 s3:
   endpoint: http://172.16.210.30:9000
@@ -67,3 +66,9 @@ s3:
   credentials:
     accessKey: CKZnlthtmn4TePG5SLoi
     secretKey: sHopxI50FGaQ9e7poAlmWFzuKBfEcwdxeQFf4SR3
+
+logging:
+  pattern:
+    console: %d{yyyy-MM-dd HH:mm:ss} - [%thread] - %logger{36} - %msg%n
+  level:
+    root: INFO

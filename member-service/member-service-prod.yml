@@ -100,3 +100,9 @@ redirect-url:
   main: ${FRONT_URL}/main
   login: ${FRONT_URL}/log-in
   profile-form: ${FRONT_URL}/sign-up/detail
+
+logging:
+  pattern:
+    console: %d{yyyy-MM-dd HH:mm:ss} - [%thread] - %logger{36} - %msg%n
+  level:
+    root: INFO
