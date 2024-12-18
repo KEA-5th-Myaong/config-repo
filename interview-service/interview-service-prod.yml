@@ -57,6 +57,6 @@ management:
 
 logging:
   pattern:
-    console: %d{yyyy-MM-dd HH:mm:ss} - [%thread] - %logger{36} - %msg%n
+    console: "%d{yyyy-MM-dd HH:mm:ss} - [%thread] - %logger{36} - %msg%n"
   level:
     root: INFO
